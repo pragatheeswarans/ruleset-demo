@@ -10,21 +10,32 @@ export default Route.extend({
         },
         sort_by: {
             refreshModel: true
+        },
+        per_page: {
+            refreshModel: true
         }
     },
 
-    model(params = {}) {
+    model(params = {}, transition) {
         return new Promise((resolve, reject) => {
             $.ajax('https://ruleset.herokuapp.com/rules/list', {
                 type: 'GET',
-                page: params.page,
-                search: params.search,
-                sort_by: params.sort
+                data: {
+                    page: params.page,
+                    search: params.search,
+                    sort_by: params.sort_by
+                }
             }).then((json) => {
                 resolve(json);
             }).catch((error) => {
                 reject(json);
             });
         })
+    },
+    
+    setupController(controller, context) {
+        this._super(...arguments);
+        this.set('controller.model', context.result);
+        this.set('controller.hasMore', context.has_more);
     }
 });

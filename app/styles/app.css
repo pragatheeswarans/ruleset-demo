@@ -82,3 +82,13 @@ tr:nth-child(even) {
 td:hover .edit-icon {
     display: inline-block;
 }
+.pagination {
+    margin-top: 30px;
+}
+.right-arrow {
+    transform: rotate(180deg);
+}
+.disabled svg {
+    opacity: 0.3;
+    pointer-events: none;
+}

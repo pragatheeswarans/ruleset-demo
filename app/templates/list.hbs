@@ -23,4 +23,12 @@
             {{/each}}
         </tbody>
     </table>
+    <div class="pagination text-right">
+        <span onClick={{action 'loadPreviousPage'}} class="{{if isFirstPage "disabled"}}">
+            {{inline-svg "/svg/left-arrow.svg" class="small-icon"}}
+        </span>
+        <span onClick={{action 'loadNextPage'}} class="{{if isLastPage "disabled"}}">
+            {{inline-svg "/svg/left-arrow.svg" class="small-icon right-arrow"}}
+        </span>
+    </div>
 </div>
