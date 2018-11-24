@@ -1,0 +1,84 @@
+.row {
+    margin: 20px;
+}
+.ruleset-container {
+    width: 80%;
+    margin: 100px auto;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    background: #f7f7f7;
+    font-size: 16px;
+}
+.desc-field {
+    width: calc(100% - 120px);
+    height: 25px;
+    padding: 5px;
+    font-size: 14px;
+}
+.select-box {
+    margin: 0 10px;
+}
+.condition-select, .value-field {
+    width: 100%;
+    height: 25px;
+    font-size: 14px;
+}
+.element {
+    display: inline-block;
+    width: 20%;
+    margin-right: 30px;
+}
+.small-icon {
+    width: 22px;
+    height: 22px;
+    margin-right: 5px;
+    cursor: pointer;
+    vertical-align: middle;
+}
+.text-right {
+    text-align: right;
+}
+.button {
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 15px;
+    background-color: #68b3f7;
+    color: #fff;
+}
+.secondary-btn {
+    background-color:#d8e0e8;
+    color: #666;
+}
+.button-toolbar {
+    margin: 50px;
+}
+.rules-table {
+    width: 100%;
+    table-layout: fixed;
+    margin-top: 15px;
+    border: 1px solid #eee;
+    padding: 20px;
+}
+th {
+    width: 300px;
+    text-align: left;
+}
+th+th {
+    width: auto;
+}
+td {
+    padding: 20px 0;
+}
+tr:nth-child(even) {
+    background-color: #ececec;
+}
+.edit-icon {
+    width: 12px;
+    height: 12px;
+    margin-left: 5px;
+    display: none;
+    cursor: pointer;
+}
+td:hover .edit-icon {
+    display: inline-block;
+}

@@ -1,0 +1,26 @@
+<div class="row">
+    <div class="text-right">
+        <button class="button primary-button" onClick={{action "createRule"}}> Add New Rule </button>
+    </div>
+    <table name="rulesList" class="rules-table">
+        <thead>
+            <tr>
+                <th> Name </th>
+                <th> Rules JSON </th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each model as |rule|}}
+                <tr>
+                    <td>
+                        {{rule.name}}
+                        <span onClick={{action "goToEdit" rule.id}}>
+                            {{inline-svg "/svg/edit.svg" class="edit-icon"}}
+                        </span>
+                    </td>
+                    <td> {{rule.data}} </td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>

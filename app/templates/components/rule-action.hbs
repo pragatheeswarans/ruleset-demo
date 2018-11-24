@@ -1,0 +1,36 @@
+<div class="row">
+    <div class="element">
+        <select name="actionField" class="select-box condition-select" onchange={{action "changeAction" value="target.value"}}>
+            {{#each ruleActions as |action|}}
+                <option value={{action.value}} selected={{eq selectedAction action.value}}> {{action.label}} </option>
+            {{/each}}
+        </select>
+    </div>
+    <div class="element text-right">
+        {{#if isMoveTypeAction }}
+            <span> to Mailbox: </span>
+        {{/if}}
+    </div>
+    <div class="element">
+        {{#if isMoveTypeAction}}
+            <select name="moveToField" class="select-box condition-select" onchange={{action "changeMoveTo" value="target.value"}}>
+                {{#each mailBoxes as |mailBox|}}
+                    <option value={{mailBox.value}} selected={{eq selectedMailBox mailBox.value}}> {{mailBox.label}} </option>
+                {{/each}}
+            </select>
+        {{else if isTagType}}
+            {{input type="text" value=selectedLabel class="value-field"}}
+        {{/if}}
+    </div>
+
+    <div class="element">
+    </div>
+
+    <span class="actions" onclick={{action "removeAction"}}>
+        {{inline-svg "/svg/minus.svg" class="small-icon"}}
+    </span>
+    
+    <span class="actions" onclick={{action "addAction"}}>
+        {{inline-svg "/svg/plus.svg" class="small-icon"}}
+    </span>
+</div>

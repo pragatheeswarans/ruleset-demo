@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="element">
+        <select name="conditionField" class="select-box condition-select" onchange={{action "changeConditionField" value="target.value"}}>
+            {{#each fields as |field|}}
+                <option value={{field.value}} selected={{eq selectedField field.value}}> {{field.label}} </option>
+            {{/each}}
+        </select>
+    </div>
+    
+    <div class="element">
+        <select name="conditionPredicate" class="select-box condition-select" onchange={{action "changeConditionPredicate" value="target.value"}}>
+            {{#each predicates as |predicate|}}
+                <option value={{predicate.value}} selected={{eq selectedPredicate predicate.value}}> {{predicate.label}} </option>
+            {{/each}}
+        </select>
+    </div>
+    
+    <div class="element">
+        {{input type=valueFieldType value=selectedValue class="value-field"}}
+    </div>
+    
+    <div class="element">
+        {{#if (eq fieldType 'date')}}
+            <span> days ago </span>
+        {{/if}}
+    </div>
+    
+    <span class="actions" onclick={{action "removeCondition"}}>
+        {{inline-svg "/svg/minus.svg" class="small-icon"}}
+    </span>
+    
+    <span class="actions" onclick={{action "addCondition"}}>
+        {{inline-svg "/svg/plus.svg" class="small-icon"}}
+    </span>
+</div>

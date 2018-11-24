@@ -1,0 +1,38 @@
+<div class="ruleset-header">
+    <div class="row">
+        <label class="description"> Description </label>
+        {{input type="text" class="desc-field" value=model.name}}
+    </div>
+</div>
+<div class="ruleset-body">
+    <div class="row">
+        <div class="rules-predicate">
+            <span> If </span>
+            <select id="predicate" class="select-box">
+                {{#each predicates as |predicate|}}
+                    <option value={{predicate.value}} selected={{eq model.predicate predicate.value}}> {{predicate.label}} </option>
+                {{/each}}
+            </select>
+            <span> of the following conditions are met. </span>
+        </div>
+    </div>
+    <div class="row rules-conditions">
+        {{#each model.conditions as |condition index|}}
+            {{rule-condition  condition=condition conditionIndex=index onAddCondition=(action "addCondition") onRemoveCondition=(action "removeCondition")}}
+        {{/each}}
+    </div>
+    <div class="row">
+        <p> Perform the following actions </p>
+        <div class="rules-actions">
+            {{#each model.actions as |action index|}}
+                {{rule-action ruleAction=action actionIndex=index onAddAction=(action "addAction") onRemoveAction=(action "removeAction")}}
+            {{/each}}
+        </div>
+    </div>
+</div>
+<div class="ruleset-footer">
+    <div class="row button-toolbar text-right">
+        <button class="button primary-btn" onclick={{action "saveRuleSet"}}> Save </button>
+        <button class="button secondary-btn" onclick={{action "cancelRuleSet"}}> Cancel </button>
+    </div>
+</div>

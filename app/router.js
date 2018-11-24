@@ -7,6 +7,10 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
+  this.route('create');
+  this.route('view');
+  this.route('list');
+  this.route('edit', { path: '/edit/:rule_id' });
 });
 
 export default Router;
