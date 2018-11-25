@@ -29,6 +29,29 @@ export default Controller.extend({
             if (page > 0) {
                 this.set('page', this.get('page') - 1);
             }
+        },
+        
+        searchRules(value) {
+            this.set('search', value);
+        },
+        
+        changeSortType() {
+            if (this.get('sort_by') === 'desc') {
+                this.set('sort_by', 'asc');
+            } else {
+                this.set('sort_by', 'desc');
+            }
+        },
+        
+        delete(ruleId) {
+            $.ajax(`https://ruleset.herokuapp.com/rules/delete?id=${ruleId}`, {
+                type: 'DELETE',
+            }).then((json) => {
+                this.set('model', this.get('model').rejectBy('id', ruleId));
+                window.alert(json.message);
+            }).catch((error) => {
+                window.alert(error.message);
+            });
         }
     }
 });

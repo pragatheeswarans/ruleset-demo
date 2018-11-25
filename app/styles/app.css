@@ -79,7 +79,7 @@ tr:nth-child(even) {
     display: none;
     cursor: pointer;
 }
-td:hover .edit-icon {
+tr:hover .edit-icon {
     display: inline-block;
 }
 .pagination {
@@ -92,7 +92,7 @@ td:hover .edit-icon {
     opacity: 0.3;
     pointer-events: none;
 }
-.rules-condition, .rules-actions {
+.rules-conditions, .rules-actions {
     max-height: 500px;
     border: 1px solid #e7e7e7;
     overflow: auto;
@@ -103,4 +103,8 @@ td:hover .edit-icon {
 .medium-icon {
     width: 50px;
     height: 50px;
+}
+.search-box {
+    width: 250px;
+    height: 25px;
 }

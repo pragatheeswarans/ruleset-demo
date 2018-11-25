@@ -58,7 +58,7 @@ export default Component.extend({
                 this.openListRoute();
             }).catch((error) => {
                 console.log(error);
-                console.log('Something Went wrong');
+                window.alert(error.responseJSON.message);
             });
         },
         
